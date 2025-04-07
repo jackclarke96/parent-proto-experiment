@@ -7,7 +7,6 @@
 package worldstate
 
 import (
-	// v1 "acme/weather/v1"
 	v1 "github.com/jackclarke96/nested-protobuf-experiment/gen/go/acme/weather/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -74,7 +73,8 @@ const file_acme_world_state_worldstate_proto_rawDesc = "" +
 	"!acme/world-state/worldstate.proto\x12\x10acme.world_state\x1a\x1dacme/weather/v1/weather.proto\"Z\n" +
 	"\n" +
 	"WorldState\x12L\n" +
-	"\x0fcurrent_weather\x18\x01 \x01(\v2#.acme.weather.v1.GetWeatherResponseR\x0ecurrentWeatherB\x11Z\x0facme/worldstateb\x06proto3"
+	"\x0fcurrent_weather\x18\x01 \x01(\v2#.acme.weather.v1.GetWeatherResponseR\x0ecurrentWeatherB\x95\x01\n" +
+	"\x14com.acme.world_stateB\x0fWorldstateProtoP\x01Z\x0facme/worldstate\xa2\x02\x03AWX\xaa\x02\x0fAcme.WorldState\xca\x02\x0fAcme\\WorldState\xe2\x02\x1bAcme\\WorldState\\GPBMetadata\xea\x02\x10Acme::WorldStateb\x06proto3"
 
 var (
 	file_acme_world_state_worldstate_proto_rawDescOnce sync.Once

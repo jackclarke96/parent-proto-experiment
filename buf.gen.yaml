@@ -1,5 +1,19 @@
 version: v2
 
+managed:
+  enabled: true
+  override:
+    # - file_option: go_package_prefix
+    #   module: buf.build/acme/worldstate
+    #   value: github.com/jackclarke96/nested-protobuf-experiment/gen/go
+    - file_option: go_package_prefix
+      module: buf.build/acme/weather
+      value: github.com/jackclarke96/nested-protobuf-experiment/gen/go
+
+  # disable:
+  #   - file_option: go_package
+  #     module: buf.build/googleapis/googleapis
+
 plugins:
   - local: protoc-gen-go
     out: gen/go

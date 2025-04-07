@@ -201,7 +201,8 @@ const file_acme_weather_v1_weather_proto_rawDesc = "" +
 	"\x0fCONDITION_RAINY\x10\x022g\n" +
 	"\x0eWeatherService\x12U\n" +
 	"\n" +
-	"GetWeather\x12\".acme.weather.v1.GetWeatherRequest\x1a#.acme.weather.v1.GetWeatherResponseB\x11Z\x0facme/weather/v1b\x06proto3"
+	"GetWeather\x12\".acme.weather.v1.GetWeatherRequest\x1a#.acme.weather.v1.GetWeatherResponseB\x92\x01\n" +
+	"\x13com.acme.weather.v1B\fWeatherProtoP\x01Z\x0facme/weather/v1\xa2\x02\x03AWX\xaa\x02\x0fAcme.Weather.V1\xca\x02\x0fAcme\\Weather\\V1\xe2\x02\x1bAcme\\Weather\\V1\\GPBMetadata\xea\x02\x11Acme::Weather::V1b\x06proto3"
 
 var (
 	file_acme_weather_v1_weather_proto_rawDescOnce sync.Once
