@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package acme.world_state;
+
+import "acme/weather/v1/weather.proto";
+
+option go_package = "acme/worldstate";
+
+message WorldState {
+  acme.weather.v1.GetWeatherResponse current_weather = 1;
+}
