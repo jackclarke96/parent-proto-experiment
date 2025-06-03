@@ -16,23 +16,23 @@ PROTO_SOURCE_FILES := $(foreach f,${PROTO_SOURCE_FILES},$(patsubst ./%,%,$(f)))
 BUILD_IMAGE_PROJECT_DIR=/go/src/${PROJECT_PATH}
 BUILD_WORKDIR=${BUILD_IMAGE_PROJECT_DIR}/outer
 
-SWAGGER_JSON=swagger/srvpb/oracle.swagger.json
+# SWAGGER_JSON=swagger/srvpb/oracle.swagger.json
 
 # Updated paths
 GW_FILES=$(patsubst %.proto,%.pb.gw.go,$(wildcard pb/**/*.proto))
 GRPC_FILES=$(patsubst %.proto,%_grpc.pb.go,$(wildcard pb/**/*.proto))
 PROTO_FILES=$(patsubst %.proto,%.pb.go,$(PROTO_SOURCE_FILES))
-SWAGGER_FILES=$(patsubst %.proto,%.swagger.json,$(PROTO_SOURCE_FILES))
+# SWAGGER_FILES=$(patsubst %.proto,%.swagger.json,$(PROTO_SOURCE_FILES))
 
 $(info MAKEFILE_GW_FILES: ${GW_FILES})
 $(info MAKEFILE_PROTO_FILES: ${PROTO_FILES})
 $(info MAKEFILE_GRPC_FILES: ${GRPC_FILES})
-$(info MAKEFILE_SWAGGER_FILES: ${SWAGGER_FILES})
+# $(info MAKEFILE_SWAGGER_FILES: ${SWAGGER_FILES})
 $(info MAKEFILE_PROTO_SOURCE_FILES: ${PROTO_SOURCE_FILES})
 
 
-ARTIFACTS=${PROTO_FILES} ${GW_FILES} ${GRPC_FILES} ${SWAGGER_FILES}
-
+# ARTIFACTS=${PROTO_FILES} ${GW_FILES} ${GRPC_FILES} ${SWAGGER_FILES}
+ARTIFACTS=${PROTO_FILES} ${GW_FILES} ${GRPC_FILES}
 $(info MAKEFILE_ARTIFACTS: ${ARTIFACTS})
 
 .PHONY: default
