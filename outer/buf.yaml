@@ -1,9 +1,9 @@
 version: v2
 
 modules:
-  - path: api
+  - path: pb
     name: buf.build/acme/worldstate
-  - path: submodules/weather/proto
+  - path: submodules/weather/pb
     name: buf.build/acme/weather
 
 deps:
@@ -11,7 +11,7 @@ deps:
 
 lint:
   use:
-    - DEFAULT
+    - STANDARD
     - UNARY_RPC
 
 breaking:

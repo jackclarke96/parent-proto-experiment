@@ -7,3 +7,5 @@ require (
 	google.golang.org/genproto v0.0.0-20250404141209-ee84b53bf3d0
 	google.golang.org/protobuf v1.36.6
 )
+
+require github.com/golang/protobuf v1.5.4 // indirect
