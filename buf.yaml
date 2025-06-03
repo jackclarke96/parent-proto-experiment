@@ -1,7 +1,7 @@
 version: v2
 
 modules:
-  - path: proto
+  - path: api
     name: buf.build/acme/worldstate
   - path: submodules/weather/proto
     name: buf.build/acme/weather
