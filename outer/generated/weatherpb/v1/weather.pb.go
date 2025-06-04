@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        (unknown)
-// source: acme/weather/v1/weather.proto
+// source: weatherpb/v1/weather.proto
 
 package v1
 
@@ -55,11 +55,11 @@ func (x Condition) String() string {
 }
 
 func (Condition) Descriptor() protoreflect.EnumDescriptor {
-	return file_acme_weather_v1_weather_proto_enumTypes[0].Descriptor()
+	return file_weatherpb_v1_weather_proto_enumTypes[0].Descriptor()
 }
 
 func (Condition) Type() protoreflect.EnumType {
-	return &file_acme_weather_v1_weather_proto_enumTypes[0]
+	return &file_weatherpb_v1_weather_proto_enumTypes[0]
 }
 
 func (x Condition) Number() protoreflect.EnumNumber {
@@ -68,7 +68,7 @@ func (x Condition) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Condition.Descriptor instead.
 func (Condition) EnumDescriptor() ([]byte, []int) {
-	return file_acme_weather_v1_weather_proto_rawDescGZIP(), []int{0}
+	return file_weatherpb_v1_weather_proto_rawDescGZIP(), []int{0}
 }
 
 type GetWeatherRequest struct {
@@ -81,7 +81,7 @@ type GetWeatherRequest struct {
 
 func (x *GetWeatherRequest) Reset() {
 	*x = GetWeatherRequest{}
-	mi := &file_acme_weather_v1_weather_proto_msgTypes[0]
+	mi := &file_weatherpb_v1_weather_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -93,7 +93,7 @@ func (x *GetWeatherRequest) String() string {
 func (*GetWeatherRequest) ProtoMessage() {}
 
 func (x *GetWeatherRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_acme_weather_v1_weather_proto_msgTypes[0]
+	mi := &file_weatherpb_v1_weather_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -106,7 +106,7 @@ func (x *GetWeatherRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWeatherRequest.ProtoReflect.Descriptor instead.
 func (*GetWeatherRequest) Descriptor() ([]byte, []int) {
-	return file_acme_weather_v1_weather_proto_rawDescGZIP(), []int{0}
+	return file_weatherpb_v1_weather_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *GetWeatherRequest) GetLatitude() float32 {
@@ -126,7 +126,7 @@ func (x *GetWeatherRequest) GetLongitude() float32 {
 type GetWeatherResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Temperature   float32                `protobuf:"fixed32,1,opt,name=temperature,proto3" json:"temperature,omitempty"`
-	Condition     Condition              `protobuf:"varint,2,opt,name=condition,proto3,enum=acme.weather.v1.Condition" json:"condition,omitempty"`
+	Condition     Condition              `protobuf:"varint,2,opt,name=condition,proto3,enum=weatherpb.v1.Condition" json:"condition,omitempty"`
 	Date          *date.Date             `protobuf:"bytes,3,opt,name=date,proto3" json:"date,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -134,7 +134,7 @@ type GetWeatherResponse struct {
 
 func (x *GetWeatherResponse) Reset() {
 	*x = GetWeatherResponse{}
-	mi := &file_acme_weather_v1_weather_proto_msgTypes[1]
+	mi := &file_weatherpb_v1_weather_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -146,7 +146,7 @@ func (x *GetWeatherResponse) String() string {
 func (*GetWeatherResponse) ProtoMessage() {}
 
 func (x *GetWeatherResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_acme_weather_v1_weather_proto_msgTypes[1]
+	mi := &file_weatherpb_v1_weather_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -159,7 +159,7 @@ func (x *GetWeatherResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWeatherResponse.ProtoReflect.Descriptor instead.
 func (*GetWeatherResponse) Descriptor() ([]byte, []int) {
-	return file_acme_weather_v1_weather_proto_rawDescGZIP(), []int{1}
+	return file_weatherpb_v1_weather_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GetWeatherResponse) GetTemperature() float32 {
@@ -183,52 +183,52 @@ func (x *GetWeatherResponse) GetDate() *date.Date {
 	return nil
 }
 
-var File_acme_weather_v1_weather_proto protoreflect.FileDescriptor
+var File_weatherpb_v1_weather_proto protoreflect.FileDescriptor
 
-const file_acme_weather_v1_weather_proto_rawDesc = "" +
+const file_weatherpb_v1_weather_proto_rawDesc = "" +
 	"\n" +
-	"\x1dacme/weather/v1/weather.proto\x12\x0facme.weather.v1\x1a\x16google/type/date.proto\"M\n" +
+	"\x1aweatherpb/v1/weather.proto\x12\fweatherpb.v1\x1a\x16google/type/date.proto\"M\n" +
 	"\x11GetWeatherRequest\x12\x1a\n" +
 	"\blatitude\x18\x01 \x01(\x02R\blatitude\x12\x1c\n" +
-	"\tlongitude\x18\x02 \x01(\x02R\tlongitude\"\x97\x01\n" +
+	"\tlongitude\x18\x02 \x01(\x02R\tlongitude\"\x94\x01\n" +
 	"\x12GetWeatherResponse\x12 \n" +
-	"\vtemperature\x18\x01 \x01(\x02R\vtemperature\x128\n" +
-	"\tcondition\x18\x02 \x01(\x0e2\x1a.acme.weather.v1.ConditionR\tcondition\x12%\n" +
+	"\vtemperature\x18\x01 \x01(\x02R\vtemperature\x125\n" +
+	"\tcondition\x18\x02 \x01(\x0e2\x17.weatherpb.v1.ConditionR\tcondition\x12%\n" +
 	"\x04date\x18\x03 \x01(\v2\x11.google.type.DateR\x04date*P\n" +
 	"\tCondition\x12\x19\n" +
 	"\x15CONDITION_UNSPECIFIED\x10\x00\x12\x13\n" +
 	"\x0fCONDITION_SUNNY\x10\x01\x12\x13\n" +
-	"\x0fCONDITION_RAINY\x10\x022g\n" +
-	"\x0eWeatherService\x12U\n" +
+	"\x0fCONDITION_RAINY\x10\x022a\n" +
+	"\x0eWeatherService\x12O\n" +
 	"\n" +
-	"GetWeather\x12\".acme.weather.v1.GetWeatherRequest\x1a#.acme.weather.v1.GetWeatherResponseB\x92\x01\n" +
-	"\x13com.acme.weather.v1B\fWeatherProtoP\x01Z\x0facme/weather/v1\xa2\x02\x03AWX\xaa\x02\x0fAcme.Weather.V1\xca\x02\x0fAcme\\Weather\\V1\xe2\x02\x1bAcme\\Weather\\V1\\GPBMetadata\xea\x02\x11Acme::Weather::V1b\x06proto3"
+	"GetWeather\x12\x1f.weatherpb.v1.GetWeatherRequest\x1a .weatherpb.v1.GetWeatherResponseB\xc2\x01\n" +
+	"\x10com.weatherpb.v1B\fWeatherProtoP\x01ZOgithub.com/jackclarke96/parent-proto-experiment/outer/generated/weatherpb/v1;v1\xa2\x02\x03WXX\xaa\x02\fWeatherpb.V1\xca\x02\fWeatherpb\\V1\xe2\x02\x18Weatherpb\\V1\\GPBMetadata\xea\x02\rWeatherpb::V1b\x06proto3"
 
 var (
-	file_acme_weather_v1_weather_proto_rawDescOnce sync.Once
-	file_acme_weather_v1_weather_proto_rawDescData []byte
+	file_weatherpb_v1_weather_proto_rawDescOnce sync.Once
+	file_weatherpb_v1_weather_proto_rawDescData []byte
 )
 
-func file_acme_weather_v1_weather_proto_rawDescGZIP() []byte {
-	file_acme_weather_v1_weather_proto_rawDescOnce.Do(func() {
-		file_acme_weather_v1_weather_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_acme_weather_v1_weather_proto_rawDesc), len(file_acme_weather_v1_weather_proto_rawDesc)))
+func file_weatherpb_v1_weather_proto_rawDescGZIP() []byte {
+	file_weatherpb_v1_weather_proto_rawDescOnce.Do(func() {
+		file_weatherpb_v1_weather_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_weatherpb_v1_weather_proto_rawDesc), len(file_weatherpb_v1_weather_proto_rawDesc)))
 	})
-	return file_acme_weather_v1_weather_proto_rawDescData
+	return file_weatherpb_v1_weather_proto_rawDescData
 }
 
-var file_acme_weather_v1_weather_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_acme_weather_v1_weather_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_acme_weather_v1_weather_proto_goTypes = []any{
-	(Condition)(0),             // 0: acme.weather.v1.Condition
-	(*GetWeatherRequest)(nil),  // 1: acme.weather.v1.GetWeatherRequest
-	(*GetWeatherResponse)(nil), // 2: acme.weather.v1.GetWeatherResponse
+var file_weatherpb_v1_weather_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_weatherpb_v1_weather_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_weatherpb_v1_weather_proto_goTypes = []any{
+	(Condition)(0),             // 0: weatherpb.v1.Condition
+	(*GetWeatherRequest)(nil),  // 1: weatherpb.v1.GetWeatherRequest
+	(*GetWeatherResponse)(nil), // 2: weatherpb.v1.GetWeatherResponse
 	(*date.Date)(nil),          // 3: google.type.Date
 }
-var file_acme_weather_v1_weather_proto_depIdxs = []int32{
-	0, // 0: acme.weather.v1.GetWeatherResponse.condition:type_name -> acme.weather.v1.Condition
-	3, // 1: acme.weather.v1.GetWeatherResponse.date:type_name -> google.type.Date
-	1, // 2: acme.weather.v1.WeatherService.GetWeather:input_type -> acme.weather.v1.GetWeatherRequest
-	2, // 3: acme.weather.v1.WeatherService.GetWeather:output_type -> acme.weather.v1.GetWeatherResponse
+var file_weatherpb_v1_weather_proto_depIdxs = []int32{
+	0, // 0: weatherpb.v1.GetWeatherResponse.condition:type_name -> weatherpb.v1.Condition
+	3, // 1: weatherpb.v1.GetWeatherResponse.date:type_name -> google.type.Date
+	1, // 2: weatherpb.v1.WeatherService.GetWeather:input_type -> weatherpb.v1.GetWeatherRequest
+	2, // 3: weatherpb.v1.WeatherService.GetWeather:output_type -> weatherpb.v1.GetWeatherResponse
 	3, // [3:4] is the sub-list for method output_type
 	2, // [2:3] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -236,27 +236,27 @@ var file_acme_weather_v1_weather_proto_depIdxs = []int32{
 	0, // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_acme_weather_v1_weather_proto_init() }
-func file_acme_weather_v1_weather_proto_init() {
-	if File_acme_weather_v1_weather_proto != nil {
+func init() { file_weatherpb_v1_weather_proto_init() }
+func file_weatherpb_v1_weather_proto_init() {
+	if File_weatherpb_v1_weather_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_acme_weather_v1_weather_proto_rawDesc), len(file_acme_weather_v1_weather_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_weatherpb_v1_weather_proto_rawDesc), len(file_weatherpb_v1_weather_proto_rawDesc)),
 			NumEnums:      1,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_acme_weather_v1_weather_proto_goTypes,
-		DependencyIndexes: file_acme_weather_v1_weather_proto_depIdxs,
-		EnumInfos:         file_acme_weather_v1_weather_proto_enumTypes,
-		MessageInfos:      file_acme_weather_v1_weather_proto_msgTypes,
+		GoTypes:           file_weatherpb_v1_weather_proto_goTypes,
+		DependencyIndexes: file_weatherpb_v1_weather_proto_depIdxs,
+		EnumInfos:         file_weatherpb_v1_weather_proto_enumTypes,
+		MessageInfos:      file_weatherpb_v1_weather_proto_msgTypes,
 	}.Build()
-	File_acme_weather_v1_weather_proto = out.File
-	file_acme_weather_v1_weather_proto_goTypes = nil
-	file_acme_weather_v1_weather_proto_depIdxs = nil
+	File_weatherpb_v1_weather_proto = out.File
+	file_weatherpb_v1_weather_proto_goTypes = nil
+	file_weatherpb_v1_weather_proto_depIdxs = nil
 }

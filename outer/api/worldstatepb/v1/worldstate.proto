@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package worldstatepb.v1;
+
+import "weatherpb/v1/weather.proto";
+
+option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/generated/worldstatepb/v1;v1";
+
+message WorldState {
+  weatherpb.v1.GetWeatherResponse current_weather = 1;
+}

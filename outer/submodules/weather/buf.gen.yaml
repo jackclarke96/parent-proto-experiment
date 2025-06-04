@@ -1,0 +1,32 @@
+version: v2
+
+# Enable Buf's managed mode for plugins
+managed:
+  enabled: true
+
+plugins:
+  # Generate Go code for protobuf messages using protoc-gen-go plugin
+  - remote: buf.build/protocolbuffers/go
+    out: ./generated
+    opt:
+      - paths=source_relative  # Generate files using source-relative paths (matches Go import paths)
+
+  # Generate Go code for gRPC service stubs using protoc-gen-go-grpc plugin
+  - remote: buf.build/grpc/go
+    out: ./generated
+    opt:
+      - paths=source_relative  # Again, source-relative paths for proper Go module structure
+
+  # Generate OpenAPI v2 (Swagger) specs for gRPC services using protoc-gen-openapiv2
+  - remote: buf.build/grpc-ecosystem/openapiv2
+    out: ./generated  # Outputs swagger JSON/YAML files to current directory
+
+  # Generate gRPC-Gateway reverse-proxy code (HTTP/REST ↔ gRPC translation layer)
+  - remote: buf.build/grpc-ecosystem/gateway
+    out: ./generated
+    opt:
+      - paths=source_relative  # Generate gateway code with paths matching source structure
+
+inputs:
+  # Specify the root directories containing your .proto files
+  - directory: api

@@ -1,0 +1,22 @@
+# For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
+
+version: v2  # Buf schema version
+
+modules:
+  # The main API module
+  - path: api
+    name: buf.build/acme/weather
+    
+# external dependencies
+deps:
+  - buf.build/googleapis/googleapis
+
+# Lint configuration
+lint:
+  use:
+    - STANDARD 
+
+# Breaking change detection rules
+breaking:
+  use:
+    - PACKAGE
