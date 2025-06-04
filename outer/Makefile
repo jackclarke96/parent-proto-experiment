@@ -8,7 +8,8 @@ BUILD_IMAGE=${BUILD_IMAGE_API}:a8ebf90345ea3c6a0acc19a6fb0939f3dbe6d64c
 
 MODULE_DIRS := . submodules/*
 
-PROTO_SOURCE_FILES := $(foreach dir,$(MODULE_DIRS),$(shell find $(dir)/pb -name '*.proto'))
+# Search for *.proto files anywhere under MODULE_DIRS
+PROTO_SOURCE_FILES := $(foreach dir,$(MODULE_DIRS),$(shell find $(dir) -name '*.proto'))
 
 # Strip leading './' from paths so patsubst works properly
 PROTO_SOURCE_FILES := $(foreach f,${PROTO_SOURCE_FILES},$(patsubst ./%,%,$(f)))

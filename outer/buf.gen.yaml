@@ -4,20 +4,12 @@ managed:
   enabled: true
   override:
     # - file_option: go_package_prefix
-    #   module: buf.build/acme/worldstate
+    #   module: buf.build/acme/weather
     #   value: github.com/jackclarke96/nested-protobuf-experiment/gen/go
-    - file_option: go_package_prefix
-      module: buf.build/acme/weather
-      value: github.com/jackclarke96/nested-protobuf-experiment/gen/go
-
-  # disable:
-  #   - file_option: go_package
-  #     module: buf.build/googleapis/googleapis
-
 plugins:
   - remote: buf.build/protocolbuffers/go
     out: gen/go
     opt: paths=source_relative
 inputs:
-  - directory: pb
-  - directory: submodules/weather/pb
+  - directory: api
+  - directory: submodules/weather/api

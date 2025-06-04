@@ -1,13 +1,14 @@
 version: v2
 
 modules:
-  - path: pb
+  - path: api
     name: buf.build/acme/worldstate
-  - path: submodules/weather/pb
+  - path: submodules/weather/api
     name: buf.build/acme/weather
 
 deps:
   - buf.build/googleapis/googleapis
+  - buf.build/grpc-ecosystem/grpc-gateway
 
 lint:
   use:

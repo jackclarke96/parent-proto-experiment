@@ -4,7 +4,7 @@ lint:
   use:
     - STANDARD
 modules:
-  - path: pb
+  - path: api
 breaking:
   use:
     - FILE
