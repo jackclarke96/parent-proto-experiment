@@ -1,4 +1,4 @@
-module github.com/jackclarke96/parent-protobuf-experiment
+module  github.com/jackclarke96/parent-proto-experiment
 
 go 1.24.2
 

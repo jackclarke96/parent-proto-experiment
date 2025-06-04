@@ -72,8 +72,8 @@ const file_pb_v1_worldstate_proto_rawDesc = "" +
 	"\x16pb/v1/worldstate.proto\x12\x05pb.v1\x1a\x13pb/v1/weather.proto\"P\n" +
 	"\n" +
 	"WorldState\x12B\n" +
-	"\x0fcurrent_weather\x18\x01 \x01(\v2\x19.pb.v1.GetWeatherResponseR\x0ecurrentWeatherB\x92\x01\n" +
-	"\tcom.pb.v1B\x0fWorldstateProtoP\x01Z?github.com/jackclarke96/parent-proto-experiment/outer/api/pb/v1\xa2\x02\x03PXX\xaa\x02\x05Pb.V1\xca\x02\x05Pb\\V1\xe2\x02\x11Pb\\V1\\GPBMetadata\xea\x02\x06Pb::V1b\x06proto3"
+	"\x0fcurrent_weather\x18\x01 \x01(\v2\x19.pb.v1.GetWeatherResponseR\x0ecurrentWeatherB\x9b\x01\n" +
+	"\tcom.pb.v1B\x0fWorldstateProtoP\x01ZHgithub.com/jackclarke96/parent-proto-experiment/outer/generated/pb/v1;v1\xa2\x02\x03PXX\xaa\x02\x05Pb.V1\xca\x02\x05Pb\\V1\xe2\x02\x11Pb\\V1\\GPBMetadata\xea\x02\x06Pb::V1b\x06proto3"
 
 var (
 	file_pb_v1_worldstate_proto_rawDescOnce sync.Once
