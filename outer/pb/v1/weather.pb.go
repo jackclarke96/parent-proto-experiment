@@ -201,8 +201,8 @@ const file_pb_v1_weather_proto_rawDesc = "" +
 	"\x0fCONDITION_RAINY\x10\x022S\n" +
 	"\x0eWeatherService\x12A\n" +
 	"\n" +
-	"GetWeather\x12\x18.pb.v1.GetWeatherRequest\x1a\x19.pb.v1.GetWeatherResponseB\x89\x01\n" +
-	"\tcom.pb.v1B\fWeatherProtoP\x01Z9github.com/jackclarke96/nested-proto-experiment/api/pb/v1\xa2\x02\x03PXX\xaa\x02\x05Pb.V1\xca\x02\x05Pb\\V1\xe2\x02\x11Pb\\V1\\GPBMetadata\xea\x02\x06Pb::V1b\x06proto3"
+	"GetWeather\x12\x18.pb.v1.GetWeatherRequest\x1a\x19.pb.v1.GetWeatherResponseB\x8f\x01\n" +
+	"\tcom.pb.v1B\fWeatherProtoP\x01Z?github.com/jackclarke96/parent-proto-experiment/outer/api/pb/v1\xa2\x02\x03PXX\xaa\x02\x05Pb.V1\xca\x02\x05Pb\\V1\xe2\x02\x11Pb\\V1\\GPBMetadata\xea\x02\x06Pb::V1b\x06proto3"
 
 var (
 	file_pb_v1_weather_proto_rawDescOnce sync.Once

@@ -9,7 +9,7 @@ modules:
 deps:
   - buf.build/googleapis/googleapis
   - buf.build/grpc-ecosystem/grpc-gateway
-
+  - buf.build/jackclarke96/nested-proto-experiment
 lint:
   use:
     - STANDARD

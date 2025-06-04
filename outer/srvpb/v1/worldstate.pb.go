@@ -8,7 +8,7 @@ package v1
 
 import (
 	_ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
-	_ "github.com/jackclarke96/nested-proto-experiment/api/pb/v1"
+	v1 "github.com/jackclarke96/parent-proto-experiment/outer/api/pb/v1"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -106,7 +106,7 @@ func (x *GetHealthCheckResponse) GetStatus() string {
 
 type CreateWorldStateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Worldstate    *WorldState            `protobuf:"bytes,1,opt,name=worldstate,proto3" json:"worldstate,omitempty"`
+	Worldstate    *v1.WorldState         `protobuf:"bytes,1,opt,name=worldstate,proto3" json:"worldstate,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -141,7 +141,7 @@ func (*CreateWorldStateRequest) Descriptor() ([]byte, []int) {
 	return file_srvpb_v1_worldstate_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateWorldStateRequest) GetWorldstate() *WorldState {
+func (x *CreateWorldStateRequest) GetWorldstate() *v1.WorldState {
 	if x != nil {
 		return x.Worldstate
 	}
@@ -238,7 +238,7 @@ func (x *GetWorldStateRequest) GetWorldstateId() string {
 
 type GetWorldStateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Worldstate    *WorldState            `protobuf:"bytes,1,opt,name=worldstate,proto3" json:"worldstate,omitempty"`
+	Worldstate    *v1.WorldState         `protobuf:"bytes,1,opt,name=worldstate,proto3" json:"worldstate,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -273,99 +273,33 @@ func (*GetWorldStateResponse) Descriptor() ([]byte, []int) {
 	return file_srvpb_v1_worldstate_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetWorldStateResponse) GetWorldstate() *WorldState {
+func (x *GetWorldStateResponse) GetWorldstate() *v1.WorldState {
 	if x != nil {
 		return x.Worldstate
 	}
 	return nil
 }
 
-type WorldState struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	WorldstateId     string                 `protobuf:"bytes,1,opt,name=worldstate_id,json=worldstateId,proto3" json:"worldstate_id,omitempty"`
-	StateDescription string                 `protobuf:"bytes,2,opt,name=state_description,json=stateDescription,proto3" json:"state_description,omitempty"`
-	CreatedAt        string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *WorldState) Reset() {
-	*x = WorldState{}
-	mi := &file_srvpb_v1_worldstate_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WorldState) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WorldState) ProtoMessage() {}
-
-func (x *WorldState) ProtoReflect() protoreflect.Message {
-	mi := &file_srvpb_v1_worldstate_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WorldState.ProtoReflect.Descriptor instead.
-func (*WorldState) Descriptor() ([]byte, []int) {
-	return file_srvpb_v1_worldstate_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *WorldState) GetWorldstateId() string {
-	if x != nil {
-		return x.WorldstateId
-	}
-	return ""
-}
-
-func (x *WorldState) GetStateDescription() string {
-	if x != nil {
-		return x.StateDescription
-	}
-	return ""
-}
-
-func (x *WorldState) GetCreatedAt() string {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return ""
-}
-
 var File_srvpb_v1_worldstate_proto protoreflect.FileDescriptor
 
 const file_srvpb_v1_worldstate_proto_rawDesc = "" +
 	"\n" +
-	"\x19srvpb/v1/worldstate.proto\x12\bsrvpb.v1\x1a\x1cgoogle/api/annotations.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x13pb/v1/weather.proto\"\x17\n" +
+	"\x19srvpb/v1/worldstate.proto\x12\bsrvpb.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x16pb/v1/worldstate.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"\x17\n" +
 	"\x15GetHealthCheckRequest\"0\n" +
 	"\x16GetHealthCheckResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status\"O\n" +
-	"\x17CreateWorldStateRequest\x124\n" +
+	"\x06status\x18\x01 \x01(\tR\x06status\"L\n" +
+	"\x17CreateWorldStateRequest\x121\n" +
 	"\n" +
-	"worldstate\x18\x01 \x01(\v2\x14.srvpb.v1.WorldStateR\n" +
+	"worldstate\x18\x01 \x01(\v2\x11.pb.v1.WorldStateR\n" +
 	"worldstate\"?\n" +
 	"\x18CreateWorldStateResponse\x12#\n" +
 	"\rworldstate_id\x18\x01 \x01(\tR\fworldstateId\";\n" +
 	"\x14GetWorldStateRequest\x12#\n" +
-	"\rworldstate_id\x18\x01 \x01(\tR\fworldstateId\"M\n" +
-	"\x15GetWorldStateResponse\x124\n" +
+	"\rworldstate_id\x18\x01 \x01(\tR\fworldstateId\"J\n" +
+	"\x15GetWorldStateResponse\x121\n" +
 	"\n" +
-	"worldstate\x18\x01 \x01(\v2\x14.srvpb.v1.WorldStateR\n" +
-	"worldstate\"}\n" +
-	"\n" +
-	"WorldState\x12#\n" +
-	"\rworldstate_id\x18\x01 \x01(\tR\fworldstateId\x12+\n" +
-	"\x11state_description\x18\x02 \x01(\tR\x10stateDescription\x12\x1d\n" +
-	"\n" +
-	"created_at\x18\x03 \x01(\tR\tcreatedAt2\xaa\x03\n" +
+	"worldstate\x18\x01 \x01(\v2\x11.pb.v1.WorldStateR\n" +
+	"worldstate2\xaa\x03\n" +
 	"\x11WorldstateService\x12|\n" +
 	"\x0eGetHealthCheck\x12\x1f.srvpb.v1.GetHealthCheckRequest\x1a .srvpb.v1.GetHealthCheckResponse\"'\x92A\f\n" +
 	"\n" +
@@ -391,7 +325,7 @@ func file_srvpb_v1_worldstate_proto_rawDescGZIP() []byte {
 	return file_srvpb_v1_worldstate_proto_rawDescData
 }
 
-var file_srvpb_v1_worldstate_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_srvpb_v1_worldstate_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_srvpb_v1_worldstate_proto_goTypes = []any{
 	(*GetHealthCheckRequest)(nil),    // 0: srvpb.v1.GetHealthCheckRequest
 	(*GetHealthCheckResponse)(nil),   // 1: srvpb.v1.GetHealthCheckResponse
@@ -399,11 +333,11 @@ var file_srvpb_v1_worldstate_proto_goTypes = []any{
 	(*CreateWorldStateResponse)(nil), // 3: srvpb.v1.CreateWorldStateResponse
 	(*GetWorldStateRequest)(nil),     // 4: srvpb.v1.GetWorldStateRequest
 	(*GetWorldStateResponse)(nil),    // 5: srvpb.v1.GetWorldStateResponse
-	(*WorldState)(nil),               // 6: srvpb.v1.WorldState
+	(*v1.WorldState)(nil),            // 6: pb.v1.WorldState
 }
 var file_srvpb_v1_worldstate_proto_depIdxs = []int32{
-	6, // 0: srvpb.v1.CreateWorldStateRequest.worldstate:type_name -> srvpb.v1.WorldState
-	6, // 1: srvpb.v1.GetWorldStateResponse.worldstate:type_name -> srvpb.v1.WorldState
+	6, // 0: srvpb.v1.CreateWorldStateRequest.worldstate:type_name -> pb.v1.WorldState
+	6, // 1: srvpb.v1.GetWorldStateResponse.worldstate:type_name -> pb.v1.WorldState
 	0, // 2: srvpb.v1.WorldstateService.GetHealthCheck:input_type -> srvpb.v1.GetHealthCheckRequest
 	2, // 3: srvpb.v1.WorldstateService.CreateWorldState:input_type -> srvpb.v1.CreateWorldStateRequest
 	4, // 4: srvpb.v1.WorldstateService.GetWorldState:input_type -> srvpb.v1.GetWorldStateRequest
@@ -428,7 +362,7 @@ func file_srvpb_v1_worldstate_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_srvpb_v1_worldstate_proto_rawDesc), len(file_srvpb_v1_worldstate_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

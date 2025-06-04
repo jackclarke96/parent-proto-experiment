@@ -7,7 +7,6 @@
 package v1
 
 import (
-	v1 "github.com/jackclarke96/nested-proto-experiment/api/pb/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -24,7 +23,7 @@ const (
 
 type WorldState struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
-	CurrentWeather *v1.GetWeatherResponse `protobuf:"bytes,1,opt,name=current_weather,json=currentWeather,proto3" json:"current_weather,omitempty"`
+	CurrentWeather *GetWeatherResponse    `protobuf:"bytes,1,opt,name=current_weather,json=currentWeather,proto3" json:"current_weather,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -59,7 +58,7 @@ func (*WorldState) Descriptor() ([]byte, []int) {
 	return file_pb_v1_worldstate_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *WorldState) GetCurrentWeather() *v1.GetWeatherResponse {
+func (x *WorldState) GetCurrentWeather() *GetWeatherResponse {
 	if x != nil {
 		return x.CurrentWeather
 	}
@@ -90,8 +89,8 @@ func file_pb_v1_worldstate_proto_rawDescGZIP() []byte {
 
 var file_pb_v1_worldstate_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pb_v1_worldstate_proto_goTypes = []any{
-	(*WorldState)(nil),            // 0: pb.v1.WorldState
-	(*v1.GetWeatherResponse)(nil), // 1: pb.v1.GetWeatherResponse
+	(*WorldState)(nil),         // 0: pb.v1.WorldState
+	(*GetWeatherResponse)(nil), // 1: pb.v1.GetWeatherResponse
 }
 var file_pb_v1_worldstate_proto_depIdxs = []int32{
 	1, // 0: pb.v1.WorldState.current_weather:type_name -> pb.v1.GetWeatherResponse
@@ -107,6 +106,7 @@ func file_pb_v1_worldstate_proto_init() {
 	if File_pb_v1_worldstate_proto != nil {
 		return
 	}
+	file_pb_v1_weather_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
