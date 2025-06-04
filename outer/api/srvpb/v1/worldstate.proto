@@ -6,7 +6,7 @@ import "google/api/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 import "pb/v1/weather.proto"; 
 
-option go_package = "acme/worldstate/v1;worldstatepb";
+option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/api/srvpb/v1";
 
 // WorldstateService defines the public API for managing world state
 service WorldstateService {
