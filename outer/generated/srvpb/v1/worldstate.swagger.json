@@ -1,0 +1,212 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "srvpb/v1/worldstate.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "WorldstateService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/health_check": {
+      "get": {
+        "operationId": "WorldstateService_GetHealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetHealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Worldstate"
+        ]
+      }
+    },
+    "/v1/worldstate": {
+      "post": {
+        "operationId": "WorldstateService_CreateWorldState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateWorldStateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "worldstate",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1WorldState"
+            }
+          }
+        ],
+        "tags": [
+          "Worldstate"
+        ]
+      }
+    },
+    "/v1/worldstate/{worldstateId}": {
+      "get": {
+        "operationId": "WorldstateService_GetWorldState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetWorldStateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "worldstateId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Worldstate"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "typeDate": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Year of the date. Must be from 1 to 9999, or 0 to specify a date without\na year."
+        },
+        "month": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Month of a year. Must be from 1 to 12, or 0 to specify a year without a\nmonth and day."
+        },
+        "day": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Day of a month. Must be from 1 to 31 and valid for the year and month, or 0\nto specify a year by itself or a year and month where the day isn't\nsignificant."
+        }
+      },
+      "description": "* A full date, with non-zero year, month, and day values\n* A month and day value, with a zero year, such as an anniversary\n* A year on its own, with zero month and day values\n* A year and month value, with a zero day, such as a credit card expiration\ndate\n\nRelated types are [google.type.TimeOfDay][google.type.TimeOfDay] and\n`google.protobuf.Timestamp`.",
+      "title": "Represents a whole or partial calendar date, such as a birthday. The time of\nday and time zone are either specified elsewhere or are insignificant. The\ndate is relative to the Gregorian Calendar. This can represent one of the\nfollowing:"
+    },
+    "v1Condition": {
+      "type": "string",
+      "enum": [
+        "CONDITION_UNSPECIFIED",
+        "CONDITION_SUNNY",
+        "CONDITION_RAINY"
+      ],
+      "default": "CONDITION_UNSPECIFIED"
+    },
+    "v1CreateWorldStateResponse": {
+      "type": "object",
+      "properties": {
+        "worldstateId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GetHealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GetWeatherResponse": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "type": "number",
+          "format": "float"
+        },
+        "condition": {
+          "$ref": "#/definitions/v1Condition"
+        },
+        "date": {
+          "$ref": "#/definitions/typeDate"
+        }
+      }
+    },
+    "v1GetWorldStateResponse": {
+      "type": "object",
+      "properties": {
+        "worldstate": {
+          "$ref": "#/definitions/v1WorldState"
+        }
+      }
+    },
+    "v1WorldState": {
+      "type": "object",
+      "properties": {
+        "currentWeather": {
+          "$ref": "#/definitions/v1GetWeatherResponse"
+        }
+      }
+    }
+  }
+}
