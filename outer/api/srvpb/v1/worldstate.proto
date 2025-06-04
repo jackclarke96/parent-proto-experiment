@@ -3,8 +3,8 @@ syntax = "proto3";
 package srvpb.v1;
 
 import "google/api/annotations.proto";
-import "pb/v1/worldstate.proto"; // <-- import the message
 import "protoc-gen-openapiv2/options/annotations.proto";
+import "worldstatepb/v1/worldstate.proto";
 
 option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/generated/srvpb/v1;v1";
 
@@ -38,7 +38,7 @@ message GetHealthCheckResponse {
 }
 
 message CreateWorldStateRequest {
-  pb.v1.WorldState worldstate = 1;
+  worldstatepb.v1.WorldState worldstate = 1;
 }
 
 message CreateWorldStateResponse {
@@ -50,5 +50,5 @@ message GetWorldStateRequest {
 }
 
 message GetWorldStateResponse {
-  pb.v1.WorldState worldstate = 1;
+  worldstatepb.v1.WorldState worldstate = 1;
 }

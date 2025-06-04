@@ -182,3 +182,78 @@ option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/gener
 
 ## Avoiding Package Name Conflicts
 
+To avoid package name conflicts, it is a good idea to namespace properly. 
+
+We use:
+```
+opt:
+  - paths=source_relative
+```
+
+as well as
+
+```
+inputs:
+  # Specify the root directories containing your .proto files
+  - directory: api
+  - directory: submodules/weather/api
+```
+
+This means:
+
+Generated files follow the same directory structure as the source .proto files.
+The path is calculated relative to the inputs: directories defined in buf.gen.yaml.
+For example:
+
+Proto file: `submodules/weather/api/pb/v1/weather.proto`
+Input root: `submodules/weather/api/`
+Generated output: `generated/pb/v1/weather.pb.go`
+
+To control output paths, ensure your proto files are organized to match the desired package structure.
+
+**So step 1:**
+
+We change `api/pb/v1/worldstate.proto` to `api/worldstatepb/v1/worldstate.proto`
+
+and
+
+`submodules/weather/api/pb/v1/weather.proto` to `submodules/weather/api/pb/v1/weather.proto`
+
+to stop this namespace clash.
+
+**Step 2:**
+
+Update go_package names in proto to match:
+
+`option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/generated/pb/v1;v1";` 
+
+becomes 
+
+`option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/generated/worldstatepb/v1;v1";`
+
+and 
+
+`option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/generated/pb/v1;v1";`
+
+becomes 
+
+`option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/generated/weatherpb/v1;v1";`
+
+**Step 3:**
+
+Update import and package name use. We now use `weatherpb` instead of`pb`:
+
+```
+syntax = "proto3";
+
+package worldstatepb.v1;
+
+import "weatherpb/v1/weather.proto";
+
+option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/generated/worldstatepb/v1;v1";
+
+message WorldState {
+  weatherpb.v1.GetWeatherResponse current_weather = 1;
+}
+
+```

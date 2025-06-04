@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package pb.v1;
+package weatherpb.v1;
 
 import "google/type/date.proto";
 
-option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/generated/pb/v1;v1";
+option go_package = "github.com/jackclarke96/parent-proto-experiment/outer/generated/weatherpb/v1;v1";
 
 enum Condition {
   CONDITION_UNSPECIFIED = 0;
